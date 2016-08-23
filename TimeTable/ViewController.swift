@@ -9,19 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-    
     @IBOutlet weak var pickerView1: UIPickerView!
-    
     @IBOutlet weak var pickerView2: UIPickerView!
-    
     @IBOutlet weak var labelResult: UILabel!
-    
     var timeTable: TimeTable!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         pickerView1.selectRow(4, inComponent: 0, animated: false)
         pickerView2.selectRow(4, inComponent: 0, animated: false)
         labelResult.text = "16"
@@ -36,21 +30,16 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return 10
     }
-    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int,
+                    forComponent component: Int) -> String? {
         return "\(row)"
     }
-    
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let val1 = pickerView1.selectedRowInComponent(0)
         let val2 = pickerView2.selectedRowInComponent(0)
-        
-        labelResult.text = "\(timeTable.multiply(val1, b: val2))"
+        labelResult.text = "\(timeTable.multiply(val1, letterB: val2))"
     }
-    
 }
-
